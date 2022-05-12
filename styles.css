@@ -1,0 +1,286 @@
+body {
+    height: 100vh;
+    width: 100%;
+    background-image: url(./images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template: 38% 1fr 1fr 8%/ 3% 27% 1fr 27% 5%;
+}
+
+/* ============== EGGS UP LEFT ==============================*/
+
+#up-left {
+    grid-area: 2 / 2 / 3 / 3;
+    border: solid orange 3px;
+    display: flex;
+}
+
+#egg-1-1 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(-45deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    left: 10%;
+    bottom: 10%;
+    visibility: hidden;
+}
+  
+#egg-1-2 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(0deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    left: 15%;
+    bottom: -10%;
+    visibility: hidden;
+}
+
+#egg-1-3 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(45deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    left: 22%;
+    bottom: -32%;
+    visibility: hidden;
+}
+
+#egg-1-4 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(90deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    left: 30%;
+    bottom: -55%;
+    visibility: hidden;
+}
+
+/* ==================== EGGS DOWN LEFT ======================= */
+
+#down-left {
+    grid-area: 3 / 2 / 3 / 3;
+    border: solid orange 3px;
+    display: flex;
+}
+
+
+#egg-2-1 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(-45deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    left: 10%;
+    bottom: 10%;
+    visibility: hidden;
+}
+  
+#egg-2-2 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(0deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    left: 15%;
+    bottom: -4%;
+    visibility: hidden;
+}
+
+#egg-2-3 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(45deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    left: 20%;
+    bottom: -20%;
+    visibility: hidden;
+}
+
+
+#egg-2-4 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(90deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    left: 25%;
+    bottom: -40%;
+    visibility: hidden;
+}
+
+#broken-egg-left {
+    grid-area: 4 / 2 / 4 / 3;
+    position: relative;
+    left: 60%;
+    bottom: 20%;
+    visibility: hidden;
+}
+
+/* =======================EGGS UP RIGHT=========================== */
+
+#up-right {
+    grid-area: 2 / 4 / 3 / 5;
+    border: solid orange 3px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#egg-3-1 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(-45deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    right: 10%;
+    bottom: 10%;
+    visibility: hidden;
+}
+  
+#egg-3-2 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(-90deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    right: 15%;
+    bottom: -10%;
+    visibility: hidden;
+}
+
+#egg-3-3 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(-135deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    right: 22%;
+    bottom: -32%;
+    visibility: hidden;
+}
+
+#egg-3-4 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(-180deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    right: 30%;
+    bottom: -55%;
+    visibility: hidden;
+}
+
+/* =======================EGGS DOWN RIGHT========================= */
+
+#down-right {
+    grid-area: 3 / 4 / 3 / 5;
+    border: solid orange 3px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#egg-4-1 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(-45deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    right: 10%;
+    bottom: 10%;
+    visibility: hidden;
+}
+  
+#egg-4-2 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(-90deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    right: 15%;
+    bottom: -3%;
+    visibility: hidden;
+}
+
+#egg-4-3 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(-135deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    right: 22%;
+    bottom: -20%;
+    visibility: hidden;
+}
+
+#egg-4-4 {
+    width: 35px;
+    height: 35px;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    transform: rotate(-180deg);
+    margin-top: 30px;
+    background: #ffc000;
+    position: relative;
+    right: 30%;
+    bottom: -40%;
+    visibility: hidden;
+}
+
+#broken-egg-right {
+    grid-area: 4 / 4 / 4 / 5;
+    position: relative;
+    left: 17%;
+    bottom: 20%;
+    visibility: hidden;
+}
