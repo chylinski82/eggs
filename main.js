@@ -30,32 +30,27 @@ let upRight = document.getElementById("up-right");
 let downRight = document.getElementById("down-right");
 
 let allAreas = [upLeft, downLeft, upRight, downRight];
-let catchAnEgg = false;
 
 let score = 0;
 let speed = (score + 1)*1000/2;
-let fallingEggIndex = Math.floor(Math.random()*4);
-let position = 0;
+
+let position = 0;;
 
 const fallingEggs = (arr, speed) => {
     let timeDelay = 0;
     for(let i=0; i<arr.length; i++) {
-        if(i===3 && position === fallingEggIndex) {
-            score++;
-            return score
-        } else {
-            setTimeout (function() {
-                arr[i].style.visibility = 'visible';        
-                }, timeDelay);
-            timeDelay += speed;
-            setTimeout(function() {
-                arr[i].style.visibility = 'hidden';
-                }, timeDelay);
+        setTimeout (function() {            
+            arr[i].style.visibility = 'visible'; 
+            }, timeDelay);
+        timeDelay += speed; 
+        setTimeout(function() {                          
+            arr[i].style.visibility = 'hidden';
+            }, timeDelay);
             timeDelay += speed/10;
         }
-        
-    }
-    
+    }     
+       
+
 }
 
 const clickArea = (arr) => {
@@ -82,7 +77,7 @@ const clickArea = (arr) => {
     return position
 }
 
-const catchingEggs = () => {
+const catchingEggs = () => {  
     
 }
 
@@ -97,4 +92,5 @@ downRight.addEventListener('click', function (){clickArea(downRight)});
 
  
 
-fallingEggs(allEggs[fallingEggIndex], speed);
+fallingEggs(eggsUpLeft, speed);
+
