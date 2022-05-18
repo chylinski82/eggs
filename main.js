@@ -31,28 +31,36 @@ let downRight = document.getElementById("down-right");
 
 let allAreas = [upLeft, downLeft, upRight, downRight];
 
-let score = 0;
-let speed = (score + 1)*1000/2;
-
-let position = 0;;
+let score = -1;
+let scoreScreen = document.getElementById('score');
+let speed = 500;
+let speedScreen = document.getElementById('speed');
+let position;
+let callCount = 0;
+let stopped = false;
 
 const fallingEggs = (arr, speed) => {
+    callCount++;
     let timeDelay = 0;
     for(let i=0; i<arr.length; i++) {
+        //if(speed >= 25) speed = 500 - score*15;
         setTimeout (function() {            
             arr[i].style.visibility = 'visible'; 
-            }, timeDelay);
+            if(i===3 && position === allEggs.indexOf(arr)) clearTimeout(callCount*10);
+            if(eggBrokenLeft.style.visibility === 'visible' || eggBrokenRight.style.visibility === 'visible') stopped = true;
+            }, timeDelay);    
         timeDelay += speed; 
         setTimeout(function() {                          
             arr[i].style.visibility = 'hidden';
             }, timeDelay);
             timeDelay += speed/10;
         }
+        score++;
+        
+        scoreScreen.innerHTML = `SCORE: ${score.toString()}`;
+        speedScreen.innerHTML = `speed: ${speed.toString()}`
     }     
        
-
-}
-
 const clickArea = (arr) => {
     for(area of allAreas) {
         area.style.border = 'solid orange 3px'
@@ -77,20 +85,31 @@ const clickArea = (arr) => {
     return position
 }
 
-const catchingEggs = () => {  
+const catchingEggs = () => { 
     
-}
+    let eggIndex;
+    myInterval = setInterval(function(){
+        
+        if(eggBrokenLeft.style.visibility === "visible" || eggBrokenRight.style.visibility === "visible") {
+            clearInterval(myInterval);
+            return
+        }
+        //if(speed >= 25) speed = 500 - score*15;
+        eggIndex = Math.floor(Math.random()*4);
+        fallingEggs(allEggs[eggIndex], speed);
+        }, speed*5);     
+}  
 
-upLeft.addEventListener('click', function (){clickArea(upLeft)});
-downLeft.addEventListener('click', function (){clickArea(downLeft)});
-upRight.addEventListener('click', function (){clickArea(upRight)});
-downRight.addEventListener('click', function (){clickArea(downRight)});
+upLeft.addEventListener('mousedown', function (){clickArea(upLeft)});
+downLeft.addEventListener('mousedown', function (){clickArea(downLeft)});
+upRight.addEventListener('mousedown', function (){clickArea(upRight)});
+downRight.addEventListener('mousedown', function (){clickArea(downRight)});
 //fallingEggs(allEggs[Math.floor(Math.random()*4)], speed);
 
-//catchingEggs()
+catchingEggs()
 //downRight.addEventListener('click', catchingEggs);
 
  
 
-fallingEggs(eggsUpLeft, speed);
+//fallingEggs(allEggs[Math.floor(Math.random()*4)], speed);
 
