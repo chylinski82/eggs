@@ -1,3 +1,4 @@
+
 body {
     height: 100vh;
     width: 100%;
@@ -6,7 +7,7 @@ body {
     background-size: cover;
     background-position: center;
     display: grid;
-    grid-template: 38% 1fr 1fr 8%/ 3% 27% 1fr 27% 5%;
+    grid-template: 38% 1fr 1fr 8%/ 3% 27% 1fr 35% 5%;
 }
 
 #score {
@@ -28,15 +29,64 @@ body {
     grid-area: 2 / 3 / 4 / 4;
     position: relative;
     left: 20%;
-    bottom: 15%;
+    bottom: 10%;
 }
+
+.basket {
+    position: relative;
+    top: 60%;
+    visibility: hidden;
+}
+
+.hearts {
+    grid-area:  2 / 2 / 3 / 3;
+    position: relative;
+    bottom: 40%;
+    left: 30%;
+}
+
+.heart {
+    background-color: red;
+    display: inline-block;
+    height: 20px;
+    margin: 0 15px;
+    position: relative;
+    top: 0;
+    transform: rotate(-45deg);
+    width: 20px;
+  }
+
+  .heart:before,
+  .heart:after {
+    content: "";
+    background-color: red;
+    border-radius: 50%;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+  }
+  
+  .heart:before {
+    top: -13px;
+    left: 0;
+  }
+  
+  .heart:after {
+    left: 13px;
+    top: 0;
+  }
 
 /* ============== EGGS UP LEFT ==============================*/
 
 #up-left {
     grid-area: 2 / 2 / 3 / 3;
-    border: solid orange 3px;
     display: flex;
+}
+
+#up-left .basket {
+    left: 10%;
+    top: 70%;
+    transform: rotate(-20deg);
 }
 
 #egg-1-1 {
@@ -99,10 +149,14 @@ body {
 
 #down-left {
     grid-area: 3 / 2 / 3 / 3;
-    border: solid orange 3px;
     display: flex;
 }
 
+#down-left .basket {
+    left: 10%;
+    top: 50%;
+    transform: rotate(-20deg);
+}
 
 #egg-2-1 {
     width: 35px;
@@ -169,13 +223,19 @@ body {
     visibility: hidden;
 }
 
+
 /* =======================EGGS UP RIGHT=========================== */
 
 #up-right {
     grid-area: 2 / 4 / 3 / 5;
-    border: solid orange 3px;
     display: flex;
     flex-direction: row-reverse;
+}
+
+#up-right .basket {
+    right: 15%;
+    top: 70%;
+    transform: rotate(20deg);
 }
 
 #egg-3-1 {
@@ -238,9 +298,14 @@ body {
 
 #down-right {
     grid-area: 3 / 4 / 3 / 5;
-    border: solid orange 3px;
     display: flex;
     flex-direction: row-reverse;
+}
+
+#down-right .basket {
+    right: 15%;
+    transform: rotate(20deg);
+    top: 50%;
 }
 
 #egg-4-1 {

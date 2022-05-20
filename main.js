@@ -31,23 +31,32 @@ let downRight = document.getElementById("down-right");
 
 let allAreas = [upLeft, downLeft, upRight, downRight];
 
+let baskets = document.getElementsByClassName('basket');
+
 let score = -1;
-let scoreScreen = document.getElementById('score');
 let speed = 500;
 let speedScreen = document.getElementById('speed');
-let position;
 let callCount = 0;
-let stopped = false;
+let heartIndex = 4;
 
 const fallingEggs = (arr, speed) => {
+    
+    let scoreScreen = document.getElementById('score');
     callCount++;
     let timeDelay = 0;
+    let hearts = document.getElementsByClassName('heart');
+    let audioBump = new Audio('./audio/483602__raclure__game-bump.mp3');
+    let audioBroken = new Audio('./audio/broken_egg.ogg');
     for(let i=0; i<arr.length; i++) {
-        //if(speed >= 25) speed = 500 - score*15;
         setTimeout (function() {            
-            arr[i].style.visibility = 'visible'; 
-            if(i===3 && position === allEggs.indexOf(arr)) clearTimeout(callCount*10);
-            if(eggBrokenLeft.style.visibility === 'visible' || eggBrokenRight.style.visibility === 'visible') stopped = true;
+            arr[i].style.visibility = 'visible';
+            if(i<4) audioBump.play(); 
+            if(i===3 && baskets[allEggs.indexOf(arr)].style.visibility === 'visible') clearTimeout(callCount*10);
+            if(eggBrokenLeft.style.visibility === 'visible' || eggBrokenRight.style.visibility === 'visible') {
+                hearts[Math.ceil(heartIndex)].style.visibility = 'hidden';
+                heartIndex -= 1;
+                audioBroken.play()
+            }            
             }, timeDelay);    
         timeDelay += speed; 
         setTimeout(function() {                          
@@ -55,50 +64,53 @@ const fallingEggs = (arr, speed) => {
             }, timeDelay);
             timeDelay += speed/10;
         }
-        score++;
-        
+        score++;     
         scoreScreen.innerHTML = `SCORE: ${score.toString()}`;
         speedScreen.innerHTML = `speed: ${speed.toString()}`
     }     
-       
-const clickArea = (arr) => {
-    for(area of allAreas) {
-        area.style.border = 'solid orange 3px'
-    }
-    arr.style.border = 'dotted red 5px';
-    switch(arr) {
-        case upLeft:
-            position = 0;
-            break;
-        case downLeft:
-            position = 1;
-            break;
-        case upRight:
-            position = 2;
-            break;
-        case downRight:
-            position = 3;
-            break;
-        default:
-            window.alert('error')
-    }
-    return position
-}
-
+ 
 const catchingEggs = () => { 
-    
     let eggIndex;
-    myInterval = setInterval(function(){
-        
-        if(eggBrokenLeft.style.visibility === "visible" || eggBrokenRight.style.visibility === "visible") {
-            clearInterval(myInterval);
-            return
+    myInterval = setInterval(function(){  
+        if(score % 10 === 0) {
+            speed -= 50;
         }
-        //if(speed >= 25) speed = 500 - score*15;
-        eggIndex = Math.floor(Math.random()*4);
+        if(heartIndex<-0) {
+            clearInterval(myInterval);
+            return;    
+        }
+        eggIndex = Math.floor(Math.random()*4); 
         fallingEggs(allEggs[eggIndex], speed);
         }, speed*5);     
-}  
+}
+
+const clickArea = (arr) => {
+    let player = document.getElementById('character');
+    for(basket of baskets) {
+        basket.style.visibility = 'hidden'
+    }
+    switch(arr) {
+        case upLeft:
+            baskets[0].style.visibility = 'visible';
+            player.style.left = '-30%';
+            break;
+        case downLeft:
+            baskets[1].style.visibility = 'visible';
+            player.style.left = '-35%';
+            break;
+        case upRight:
+            baskets[2].style.visibility = 'visible';
+            player.style.left = '62%';
+            break;
+        case downRight:
+            baskets[3].style.visibility = 'visible';
+            player.style.left = '68%';
+            break;
+        default:
+            window.alert('error');
+            break;
+    }
+}
 
 upLeft.addEventListener('mousedown', function (){clickArea(upLeft)});
 downLeft.addEventListener('mousedown', function (){clickArea(downLeft)});
@@ -107,9 +119,5 @@ downRight.addEventListener('mousedown', function (){clickArea(downRight)});
 //fallingEggs(allEggs[Math.floor(Math.random()*4)], speed);
 
 catchingEggs()
-//downRight.addEventListener('click', catchingEggs);
 
- 
-
-//fallingEggs(allEggs[Math.floor(Math.random()*4)], speed);
 
