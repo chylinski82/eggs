@@ -1,3 +1,68 @@
+@media (max-width: 800px) { 
+    body { 
+       max-height: 100%;  
+       max-width: 100%;
+       padding-bottom: 8%;
+       /*grid-template: 1fr 1fr 60% / 3% 31% 1fr 31% 5% !important;*/
+    }
+
+    #score {
+        font-size: 24px !important;
+    }
+
+    .heart {
+        height: 9px !important;
+        width: 9px !important;
+        margin: 0 10px !important;
+    }
+
+    .heart:before,
+    .heart:after {
+        width: 9px !important;
+        height: 9px !important;
+    }
+
+    .heart:before {
+        top: -5px !important;
+    }
+
+    .heart:after {
+        left: 5px !important;
+    }
+
+    .basket img {
+        max-width: 80px !important;
+        max-height: 70px !important;
+    }
+
+    .egg {
+        margin-top: 18% !important;
+    }
+
+    #egg-1-2, #egg-1-3, #egg-1-4, #egg-3-1{
+        margin-top: 23% !important;
+    }
+
+    #egg-1-1 {
+        margin-top: 27% !important;
+    }
+}
+
+@media (max-width: 1300px) {
+    .egg {
+        margin-top: 14% !important;
+    }
+
+    #egg-1-2, #egg-1-3, #egg-1-4, #egg-3-1{
+        margin-top: 18% !important;
+    }
+
+    #egg-1-1 {
+        margin-top: 22% !important;
+    }
+}
+
+ * { box-sizing: border-box; }
 
 body {
     height: 100vh;
@@ -5,10 +70,11 @@ body {
     overflow: hidden;
     background-image: url(./images/background.png);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: 100% 100%;
+    background-position: center center;
     display: grid;
-    grid-template: 38% 1fr 1fr 8%/ 3% 27% 1fr 35% 5%;
+    grid-template: 38% 1fr 1fr 8% / 3% 27% 1fr 27% 5%;
+    box-sizing: border-box;
 }
 
 #score {
@@ -31,6 +97,13 @@ body {
     position: relative;
     left: 20%;
     bottom: 10%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#character img {
+    max-width: 120%;
+    max-height: 120%;
 }
 
 .basket {
@@ -77,6 +150,21 @@ body {
     top: 0;
   }
 
+.basket img {
+    width: 160px;
+    height: 140px;
+}
+
+.egg {
+    width: 10%;
+    height: 19%;
+    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
+    border: 3px solid #1c446b;
+    background: #ffc000;
+    position: relative;
+    visibility: hidden;
+}
+
 /* ============== EGGS UP LEFT ==============================*/
 
 #up-left {
@@ -90,60 +178,32 @@ body {
     transform: rotate(-20deg);
 }
 
-#egg-1-1 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
+#egg-1-1 {      
     transform: rotate(-45deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 12%;
     left: 10%;
-    bottom: 10%;
-    visibility: hidden;
+    bottom: 10%; 
 }
   
 #egg-1-2 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(0deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 11%;
     left: 15%;
     bottom: -10%;
-    visibility: hidden;
 }
 
 #egg-1-3 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(45deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 10%;
     left: 22%;
     bottom: -32%;
-    visibility: hidden;
 }
 
 #egg-1-4 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(90deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 10%;
     left: 30%;
     bottom: -55%;
-    visibility: hidden;
 }
 
 /* ==================== EGGS DOWN LEFT ======================= */
@@ -160,60 +220,32 @@ body {
 }
 
 #egg-2-1 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(-45deg);
     margin-top: 30px;
-    background: #ffc000;
-    position: relative;
     left: 10%;
-    bottom: 10%;
-    visibility: hidden;
+    bottom: 9%;
 }
   
 #egg-2-2 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(0deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 7%;
     left: 15%;
     bottom: -4%;
-    visibility: hidden;
 }
 
 #egg-2-3 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(45deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 7%;
     left: 20%;
     bottom: -20%;
-    visibility: hidden;
 }
 
 
 #egg-2-4 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(90deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 9%;
     left: 25%;
     bottom: -40%;
-    visibility: hidden;
 }
 
 #broken-egg-left {
@@ -240,59 +272,31 @@ body {
 }
 
 #egg-3-1 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(-45deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 10%;
     right: 10%;
     bottom: 10%;
-    visibility: hidden;
 }
   
 #egg-3-2 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(-90deg);
-    margin-top: 30px;
-    background: #ffc000;
     position: relative;
     right: 15%;
     bottom: -10%;
-    visibility: hidden;
 }
 
 #egg-3-3 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(-135deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 9%;
     right: 22%;
     bottom: -32%;
-    visibility: hidden;
 }
 
 #egg-3-4 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(-180deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 10%;
     right: 30%;
     bottom: -55%;
-    visibility: hidden;
 }
 
 /* =======================EGGS DOWN RIGHT========================= */
@@ -310,59 +314,31 @@ body {
 }
 
 #egg-4-1 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(-45deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 7%;
     right: 10%;
     bottom: 10%;
-    visibility: hidden;
 }
   
 #egg-4-2 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(-90deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 7%;
     right: 15%;
     bottom: -3%;
-    visibility: hidden;
 }
 
 #egg-4-3 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(-135deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 8%;
     right: 22%;
     bottom: -20%;
-    visibility: hidden;
 }
 
 #egg-4-4 {
-    width: 35px;
-    height: 35px;
-    border-radius: 80% 30% 55% 50% / 55% 30% 80% 50%;
-    border: 3px solid #1c446b;
     transform: rotate(-180deg);
-    margin-top: 30px;
-    background: #ffc000;
-    position: relative;
+    margin-top: 9%;
     right: 30%;
     bottom: -40%;
-    visibility: hidden;
 }
 
 #broken-egg-right {

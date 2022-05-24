@@ -92,19 +92,19 @@ const clickArea = (arr) => {
     switch(arr) {
         case upLeft:
             baskets[0].style.visibility = 'visible';
-            player.style.left = '-30%';
+            player.style.left = '-20%';
             break;
         case downLeft:
             baskets[1].style.visibility = 'visible';
-            player.style.left = '-35%';
+            player.style.left = '-25%';
             break;
         case upRight:
             baskets[2].style.visibility = 'visible';
-            player.style.left = '62%';
+            player.style.left = '45%';
             break;
         case downRight:
             baskets[3].style.visibility = 'visible';
-            player.style.left = '68%';
+            player.style.left = '55%';
             break;
         default:
             window.alert('error');
