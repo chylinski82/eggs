@@ -17,6 +17,12 @@ let egg42 = document.getElementById('egg-4-2');
 let egg43 = document.getElementById('egg-4-3');
 let egg44 = document.getElementById('egg-4-4');
 
+let player = document.getElementById('character');
+let playerImages = document.getElementsByClassName('player-image');
+let leftArrow = document.querySelector('#arrow-left img');
+let rightArrow = document.querySelector('#arrow-right img');
+let playerIndex = 0;
+
 let eggsUpLeft = [egg11, egg12, egg13, egg14, eggBrokenLeft];
 let eggsDownLeft = [egg21, egg22, egg23, egg24, eggBrokenLeft];
 let eggsUpRight = [egg31, egg32, egg33, egg34, eggBrokenRight];
@@ -71,6 +77,13 @@ const fallingEggs = (arr, speed) => {
  
 const catchingEggs = () => { 
     let eggIndex;
+    document.querySelector('html').style.backgroundColor = 'transparent';
+    leftArrow.style.display = 'none';
+    rightArrow.style.display = 'none';
+    player.removeEventListener('click', catchingEggs);
+    leftArrow.removeEventListener('click', choosePlayerLeft);
+    rightArrow.removeEventListener('click', choosePlayerRight);
+    document.querySelector('html').requestFullscreen();
     myInterval = setInterval(function(){  
         if(score % 10 === 0) {
             speed -= 50;
@@ -81,28 +94,32 @@ const catchingEggs = () => {
         }
         eggIndex = Math.floor(Math.random()*4); 
         fallingEggs(allEggs[eggIndex], speed);
-        }, speed*5);     
+        }, speed*5); 
 }
 
+upLeft.addEventListener('mousedown', function (){clickArea(upLeft)});
+downLeft.addEventListener('mousedown', function (){clickArea(downLeft)});
+upRight.addEventListener('mousedown', function (){clickArea(upRight)});
+downRight.addEventListener('mousedown', function (){clickArea(downRight)});
+
 const clickArea = (arr) => {
-    let player = document.getElementById('character');
     for(basket of baskets) {
         basket.style.visibility = 'hidden'
     }
     switch(arr) {
-        case upLeft:
+        case upLeft || eggsUpLeft:
             baskets[0].style.visibility = 'visible';
             player.style.left = '-20%';
             break;
-        case downLeft:
+        case downLeft || eggsDownLeft:
             baskets[1].style.visibility = 'visible';
             player.style.left = '-25%';
             break;
-        case upRight:
+        case upRight || eggsUpRight:
             baskets[2].style.visibility = 'visible';
             player.style.left = '45%';
             break;
-        case downRight:
+        case downRight || eggsDownRight:
             baskets[3].style.visibility = 'visible';
             player.style.left = '55%';
             break;
@@ -112,12 +129,38 @@ const clickArea = (arr) => {
     }
 }
 
-upLeft.addEventListener('mousedown', function (){clickArea(upLeft)});
-downLeft.addEventListener('mousedown', function (){clickArea(downLeft)});
-upRight.addEventListener('mousedown', function (){clickArea(upRight)});
-downRight.addEventListener('mousedown', function (){clickArea(downRight)});
+const choosePlayerLeft = () => {
+    for(img of playerImages) {
+        img.style.display = 'none'
+    }
+    if(playerIndex===0) playerIndex = 4;
+    else playerIndex--;
+    playerImages[playerIndex].style.display = 'block';
+}
+
+const choosePlayerRight = () => {
+    for(img of playerImages) {
+        img.style.display = 'none'
+    }
+    if(playerIndex===4) playerIndex = 0;
+    else playerIndex++;
+    playerImages[playerIndex].style.display = 'block';
+}
+
+const playGame = () => { 
+    screen.orientation.lock('landscape');
+    document.querySelector('html').style.backgroundColor = 'rgb(31, 28, 28)';
+    playerImages[0].style.display = 'block';
+    player.addEventListener('click', catchingEggs);
+    rightArrow.addEventListener('click', choosePlayerRight); 
+    leftArrow.addEventListener('click', choosePlayerLeft);
+     
+}
+
+
 //fallingEggs(allEggs[Math.floor(Math.random()*4)], speed);
 
-catchingEggs()
+//catchingEggs()
+playGame()
 
 
