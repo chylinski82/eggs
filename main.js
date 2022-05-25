@@ -45,8 +45,15 @@ let speedScreen = document.getElementById('speed');
 let callCount = 0;
 let heartIndex = 4;
 
+const colorfulEggs = () => {
+    if((Math.floor(Math.random()*3)) + (Math.floor(Math.random()*2)) === 3) return  `#${Math.floor(Math.random()*16777215).toString(16)}`;
+    else return '#ffc000';
+}
+
 const fallingEggs = (arr, speed) => {
-    
+    let eggsColor = colorfulEggs();
+    let rollingEggs = document.getElementsByClassName('egg');
+    for(egg of rollingEggs) egg.style.background = eggsColor;
     let scoreScreen = document.getElementById('score');
     callCount++;
     let timeDelay = 0;
@@ -86,7 +93,7 @@ const catchingEggs = () => {
     document.querySelector('html').requestFullscreen();
     myInterval = setInterval(function(){  
         if(score % 10 === 0) {
-            speed -= 50;
+            speed -= 20;
         }
         if(heartIndex<-0) {
             clearInterval(myInterval);
